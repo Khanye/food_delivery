@@ -18,7 +18,7 @@ class CartRepo{
         var time = DateTime.now().toString();
         cart =[];
         /*
-            //cartlist a list of objects.
+            //Cartlist a list of objects.
             // cart accepts String so we have to convert cartList to string.
                 ie cart.Add needs a String
             Convert objects to string because sharedPreferences only accepts string
