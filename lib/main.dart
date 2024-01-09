@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             //home: const SplashScreen(),
-            home: const HomePage(),
-            //initialRoute: RouteHelper.getSplashPage(),
+            //home: const HomePage(),
+            initialRoute: RouteHelper.getSplashPage(),
             getPages: RouteHelper.routes,
           );
        });
