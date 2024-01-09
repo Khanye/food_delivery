@@ -5,14 +5,14 @@ class NoDataPage extends StatelessWidget {
   final String text;
   final String imgPath;
   const NoDataPage({Key? key, required this.text,
-  this.imgPath = "asset/image/empty_cart.png"
+  this.imgPath = "assets/image/empty_box.png",
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(
           imgPath,

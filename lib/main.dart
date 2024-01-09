@@ -4,6 +4,7 @@ import 'package:food_delivery/pages/cart/cart_page.dart';
 import 'package:food_delivery/pages/food/popular_food_detail.dart';
 import 'package:food_delivery/pages/food/recommended_food_detail.dart';
 import 'package:food_delivery/pages/home/food_page_body.dart';
+import 'package:food_delivery/pages/home/home_page.dart';
 import 'package:food_delivery/pages/home/main_food_page.dart';
 import 'package:food_delivery/pages/splash/splash_page.dart';
 import 'package:food_delivery/routes/route_helper.dart';
@@ -30,8 +31,9 @@ class MyApp extends StatelessWidget {
        return GetBuilder<RecommendedProductController>(builder:(_){
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: const SplashScreen(),
-            initialRoute: RouteHelper.getSplashPage(),
+            //home: const SplashScreen(),
+            home: const HomePage(),
+            //initialRoute: RouteHelper.getSplashPage(),
             getPages: RouteHelper.routes,
           );
        });
