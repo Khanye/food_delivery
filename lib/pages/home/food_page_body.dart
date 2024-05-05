@@ -88,12 +88,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                BigText(text: "Recommended"),
                SizedBox(width: Dimensions.width10,),
                Container(
-                 margin: const EdgeInsets.only(bottom: 3),
+                 margin: EdgeInsets.only(bottom: Dimensions.width15/5),
                  child: BigText(text: ".",color: Colors.black38,),
                ),
                SizedBox(width: Dimensions.width10,),
                Container(
-                 margin: const EdgeInsets.only(bottom: 2),
+                 margin: EdgeInsets.only(bottom: Dimensions.width10/5),
                  child: SmallText(text: "Food Pairing",),
                )
              ],
@@ -110,7 +110,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               itemBuilder: (context ,index){
                 return GestureDetector(
                   onTap: (){
-                    Get.toNamed(RouteHelper.getRecommendedFood(index,'home'));
+                    Get.toNamed(RouteHelper.getRecommendedFood(index,"home"));
+                    print(pageController.page);
                   },
                   child: Container(
                     margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20, bottom: Dimensions.height10),
@@ -222,13 +223,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           onTap: (){
             // Get.to(()=> PopularFoodDetail());
             //Get.toNamed(RouteHelper.popularFood);
-            Get.toNamed(RouteHelper.getPopularFood(index,'home'));
+            Get.toNamed(RouteHelper.getPopularFood(index,"home"));
             },
             child: Container(
               height: Dimensions.pageViewContainer,
-              margin: const EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(Dimensions.radius30),
                   color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
                   image:  DecorationImage(
                       fit: BoxFit.cover,
@@ -242,9 +243,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
                 height: Dimensions.pageViewTextContainer,
-                margin: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
+                margin:  EdgeInsets.only(left: Dimensions.width20*2, right: Dimensions.width20*2, bottom: Dimensions.width15*2),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: Colors.white,
                     boxShadow: const [
                       BoxShadow(
@@ -255,7 +256,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       BoxShadow(color: Colors.white, offset: Offset(5, 0))
                     ]),
                 child: Container(
-                  padding:  EdgeInsets.only(top: Dimensions.height15, left: 15, right: 15),
+                  padding:  EdgeInsets.only(top: Dimensions.width15, left: Dimensions.width15, right: Dimensions.width15),
                   child: AppColumn(text: popularProduct.name!),
                 )),
           )

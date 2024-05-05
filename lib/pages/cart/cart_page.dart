@@ -23,6 +23,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          //header
           Positioned(
             top: Dimensions.height20*3,
             left: Dimensions.width20,
@@ -55,6 +56,7 @@ class CartPage extends StatelessWidget {
               )),
           GetBuilder<CartController>(builder: (_cartController){
             return _cartController.getItems.length>0?
+          //body
             Positioned(
                 top: Dimensions.height20*5,
                 left: Dimensions.width20,
@@ -168,6 +170,7 @@ class CartPage extends StatelessWidget {
           })
         ],
       ),
+      //bottom bar
       bottomNavigationBar: GetBuilder<CartController>(builder: (cartController){
           return Container(
             height: Dimensions.bottomHeightBar,

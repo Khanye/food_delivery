@@ -111,7 +111,7 @@ class CartHistory extends StatelessWidget {
                                         return index<=2?Container(
                                           margin: EdgeInsets.only(right:Dimensions.width10/2),
                                           height: Dimensions.height20*4,
-                                          width: Dimensions.height20*4,
+                                          width: Dimensions.width20*4,
                                           decoration: BoxDecoration(
                                               borderRadius: BorderRadius.circular(Dimensions.height15/2),
                                               image: DecorationImage(

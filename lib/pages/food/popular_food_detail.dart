@@ -26,9 +26,7 @@ class PopularFoodDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var product = Get.find<PopularProductController>().popularProductList[pageId];
     Get.find<PopularProductController>().initProduct(product,Get.find<CartController>());
-    //testing controller
-    // print('pageId is ' + pageId.toString());
-   //print('product name is '+ product.name.toString());
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -59,6 +57,8 @@ class PopularFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap:(){
+                    print(page);
+
                      if(page=='cartpage'){
                        Get.toNamed(RouteHelper.getCartPage());
                      }else{
@@ -85,7 +85,7 @@ class PopularFoodDetail extends StatelessWidget {
                      controller.totalItems>=1?
                      Positioned(
                        right: 0,top:0,
-                       child: AppIcon(icon: Icons.circle,size: 20,
+                       child: AppIcon(icon: Icons.circle,size: Dimensions.iconSize16,
                        iconColor: Colors.transparent,
                        backgroundColor: AppColors.mainColor,),
                      ):

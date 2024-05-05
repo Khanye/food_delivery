@@ -17,7 +17,7 @@ import '../cart/cart_page.dart';
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
   final String page;
-  const RecommendedFoodDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
+  const RecommendedFoodDetail({Key? key, required this.pageId,required this.page }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class RecommendedFoodDetail extends StatelessWidget {
     Get.find<PopularProductController>().initProduct(product,Get.find<CartController>());
     // testing controller
     print('pageId is ' + pageId.toString());
+    print('the page is' + page.toString());
     print('product name is '+ product.name.toString());
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,13 +39,13 @@ class RecommendedFoodDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      if(page=='cartpage'){
+                      if(page=="cartpage"){
                         Get.toNamed(RouteHelper.getCartPage());
                       }else{
                         Get.toNamed(RouteHelper.getInitial());
                       }
                         },
-                      child: AppIcon(icon: Icons.clear),
+                      child: AppIcon(icon: Icons.arrow_back_ios),
                   ),
                  // AppIcon(icon: Icons.shopping_cart_outlined)
                   GetBuilder<PopularProductController>(builder: (controller){
