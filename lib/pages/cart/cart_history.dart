@@ -79,7 +79,7 @@ class CartHistory extends StatelessWidget {
             ),
             GetBuilder<CartController>(builder: (_cartController){
               return _cartController.getCartHistoryList().length>0?
-              Expanded(child: Container(
+              Expanded(child: Container (
                   margin: EdgeInsets.only(
                       top: Dimensions.height20,
                       left: Dimensions.width20,
@@ -87,8 +87,7 @@ class CartHistory extends StatelessWidget {
                   ),
                   child: MediaQuery.removePadding(
                     removeTop: true,
-                    context: context,
-                    child: ListView (
+                    context: context,child: ListView (
                       children: [
                         for(int i =0;i<itemsPerOrder.length;i++)
                           Container(

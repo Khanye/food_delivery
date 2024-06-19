@@ -1,6 +1,5 @@
 import 'package:food_delivery/utils/app_constants.dart';
 import 'package:get/get.dart';
-
 import '../api/api_client.dart';
 
 class PopularProductRepo extends GetxService{
