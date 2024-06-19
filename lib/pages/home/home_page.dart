@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/pages/account/account_page.dart';
+import 'package:food_delivery/pages/auth/sign_up_page.dart';
 import 'package:food_delivery/pages/cart/cart_history.dart';
 import 'package:food_delivery/pages/home/main_food_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -18,10 +19,10 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   late PersistentTabController _controller;
   List pages =[
-  MainFoodPage(),
-  Container(child:Center(child:Text('NextPage'))),
-  Container(child:Center(child:Text('Next NextPage'))),
-  Container(child:Center(child:Text('Next Next NextPage'))),
+  const MainFoodPage(),
+    const SignUpPage(),
+    CartHistory(),
+    const AccountPage(),
   ];
 
   void onTapNav(int index){
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _buildScreens(){
     return [
       MainFoodPage(),
-      Container(child:Center(child:Text('NextPage'))),
+      SignUpPage(),
       CartHistory(),
       AccountPage(),
     ];
