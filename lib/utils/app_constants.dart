@@ -9,6 +9,9 @@ class AppConstants{
   static const String DRINKS_URI = "/api/v1/products/drinks";
   static const String UPLOAD_URI = "/uploads/";
 
+  //auth end points
+  static const String REGISTRATION_URI = "/api/v1/auth/register";
+
   static const String TOKEN = "DBtoken";
   static const String CART_LIST = "cart-list";
   static const String CART_HISTORY_LIST = "cart-history-list";
