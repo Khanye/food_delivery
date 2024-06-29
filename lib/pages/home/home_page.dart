@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/pages/account/account_page.dart';
+import 'package:food_delivery/pages/auth/sign_in_page.dart';
 import 'package:food_delivery/pages/auth/sign_up_page.dart';
 import 'package:food_delivery/pages/cart/cart_history.dart';
 import 'package:food_delivery/pages/home/main_food_page.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   late PersistentTabController _controller;
   List pages =[
   const MainFoodPage(),
-    const SignUpPage(),
+    Container(child: Text("History Page"),),
     CartHistory(),
     const AccountPage(),
   ];
@@ -40,36 +41,32 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _buildScreens(){
     return [
       MainFoodPage(),
-      SignUpPage(),
+      Container(child: Text("History Page"),),
       CartHistory(),
       AccountPage(),
     ];
   }
-  List<PersistentBottomNavBarItem> _navBarsItems(){
+ List<PersistentBottomNavBarItem> _navBarsItems(){
     return[
       PersistentBottomNavBarItem(
           icon: const Icon(CupertinoIcons.home),
-          title: ("Home"),
-          activeColorPrimary: CupertinoColors.activeBlue,
-          inactiveColorPrimary: CupertinoColors.systemGrey,
+          activeColorPrimary: AppColors.yellowColor,
+          inactiveColorPrimary: CupertinoColors.inactiveGray,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.archivebox_fill),
-        title: ("Archive"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: AppColors.yellowColor,
+        inactiveColorPrimary: CupertinoColors.inactiveGray,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.cart_fill),
-        title: ("Cart"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        activeColorPrimary: AppColors.yellowColor,
+        inactiveColorPrimary: CupertinoColors.inactiveGray,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.person),
-        title: ("Me"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
+        // activeColorPrimary: AppColors.yellowColor,
+        inactiveColorPrimary: CupertinoColors.inactiveGray,
       ),
     ];
   }
@@ -104,7 +101,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }*/
-  @override
+ @override
   Widget build(BuildContext context){
     return PersistentTabView(
         context,
@@ -131,7 +128,7 @@ class _HomePageState extends State<HomePage> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style1,
+      navBarStyle: NavBarStyle.style13,
     );
   }
 }
