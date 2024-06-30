@@ -35,10 +35,10 @@ class AuthRepo{
     return sharedPreferences.containsKey(AppConstants.TOKEN) ;
   }
 
-  Future<bool>saveUserToken(String token) async {
+    saveUserToken(String token) async {
     apiClient.token = token;
     apiClient.upDateHeaders(token);
-    return await sharedPreferences.setString(AppConstants.TOKEN , token);
+    return  await sharedPreferences.setString(AppConstants.TOKEN , token);
   }
 
   Future<void>saveUserNumberAndPassword(String number,String password)async {

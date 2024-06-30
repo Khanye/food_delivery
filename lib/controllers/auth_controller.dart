@@ -23,7 +23,7 @@ class AuthController extends GetxController implements GetxService{
          authRepo.saveUserToken(response.body["token"]);
          responseModel = ResponseModel(true, response.body["token"]);
      }else{
-       responseModel = ResponseModel(true, response.statusText!);
+       responseModel = ResponseModel(false, response.statusText!);
      }
      _isLoading = false;
      update();
@@ -45,7 +45,7 @@ class AuthController extends GetxController implements GetxService{
     }else{
       //print("Login not successful");
       //print(response.body["token"]);
-      responseModel = ResponseModel(true, response.statusText!);
+      responseModel = ResponseModel(false, response.statusText!);
     }
     _isLoading = false;
     update();
