@@ -13,9 +13,12 @@ class UserController extends GetxController implements GetxService {
 
   bool _isLoading = false;
   late UserModel _userModel;
+  //UserModel? _userModel ;
+  //UserModel? get userModel =>_userModel;
 
-  bool get isLoading => _isLoading;
-  UserModel get userModel => _userModel;
+
+  bool get isLoading =>_isLoading;
+  UserModel get userModel =>_userModel;
 
   Future<ResponseModel> getUserInfo() async {
 
@@ -23,12 +26,11 @@ class UserController extends GetxController implements GetxService {
     late ResponseModel responseModel;
     if (response.statusCode == 200) {
       _userModel = UserModel.fromJson(response.body);
-      _isLoading = true;
+      _isLoading=true;
       responseModel = ResponseModel(true, "successful");
     } else {
-      responseModel = ResponseModel(true, response.statusText!);
+      responseModel = ResponseModel(false, response.statusText!);
     }
-    _isLoading = false;
     update();
     return responseModel;
   }
