@@ -14,6 +14,13 @@ class AppConstants{
   static const String LOGIN_URI = "/api/v1/auth/login";
   static const String USERINFO_URI = "/api/v1/customer/info";
 
+
+  static const String USER_ADDRESS = "user_address";
+  static const String ADD_USER_ADDRESS = "/api/v1/customer/address/add";
+  static const String ADDRESS_LIST_URI = "/api/v1/customer/address/list";
+
+
+  static const String GEOCODE_URI = "/api/v1/config/geocode-api";
   static const String TOKEN = "";
   static const String PHONE = "";
   static const String PASSWORD = "";

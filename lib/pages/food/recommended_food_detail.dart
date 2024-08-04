@@ -162,7 +162,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             ),
             Container(
               height: Dimensions.bottomHeightBar,
-              padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15,left: Dimensions.width20,right: Dimensions.width20),
+              padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30,left: Dimensions.width20,right: Dimensions.width20),
               decoration: BoxDecoration(
                   color: AppColors.buttonBackgroundColor,
                   borderRadius: BorderRadius.only(

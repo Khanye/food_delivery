@@ -22,9 +22,9 @@ class AuthRepo{
     return await apiClient.postData(AppConstants.REGISTRATION_URI, model.toJson());
   }
 
-  Future<Response> login(String email,String password) async {
+  Future<Response> login(String phone,String password) async {
 
-    return await apiClient.postData(AppConstants.LOGIN_URI, {"email":email,"password":password,"phone":sharedPreferences.getString(AppConstants.PHONE)});
+    return await apiClient.postData(AppConstants.LOGIN_URI, {"phone":phone,"password":password});
   }
 
   Future<String> getUserToken() async {
@@ -39,6 +39,10 @@ class AuthRepo{
     apiClient.token = token;
     apiClient.upDateHeaders(token);
     return  await sharedPreferences.setString(AppConstants.TOKEN , token);
+  }
+
+  Map<String ,String > getHeaderValues(){
+    return apiClient.mainHeaders;
   }
 
   Future<void>saveUserNumberAndPassword(String number,String password)async {

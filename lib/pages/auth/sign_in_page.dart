@@ -18,25 +18,24 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
+    var phoneController = TextEditingController();
     var passwordController = TextEditingController();
 
     void _login(AuthController authController){
-      String email = emailController.text.trim();
+      String phone = phoneController.text.trim();
       String password = passwordController.text.trim();
 
-      if(email.isEmpty){
-        showSnackBar("Type your email address",title: "Email Address");
-      }else if(!GetUtils.isEmail(email)){
-        showSnackBar("Type in a valid email address",title: "Email Address");
+      if(phone.isEmpty){
+        showSnackBar("Type your phone address",title: "phone Address");
+      }else if(!GetUtils.isEmail(phone)){
+        showSnackBar("Type in a valid phone address",title: "phone Address");
       }else if(password.isEmpty){
         showSnackBar("Type in your password",title: "Password");
       }else if(password.length<6){
         showSnackBar("Your password is too short",title: "Password");
       }
       else{
-
-        authController.login(email,password).then((status){
+        authController.login(phone,password).then((status){
           if(status.isSuccess){
             Get.toNamed(RouteHelper.getInitial());
           }else{
@@ -94,10 +93,10 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: Dimensions.height20,),
-              //your email
-              AppTextField(textController: emailController,
-                  hintText: "Email",
-                  icon: Icons.email),
+              //your phone
+              AppTextField(textController: phoneController,
+                  hintText: "phone",
+                  icon: Icons.phone),
               SizedBox(height: Dimensions.height20,),
               //your password
               AppTextField(textController: passwordController,

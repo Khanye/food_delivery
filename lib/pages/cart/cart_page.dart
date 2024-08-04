@@ -12,6 +12,7 @@ import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/location_controller.dart';
 import '../../controllers/popular_product_controller.dart';
 import '../../controllers/recommended_product_controller.dart';
 import '../../utils/app_constants.dart';
@@ -206,8 +207,10 @@ class CartPage extends StatelessWidget {
                 GestureDetector(
                   onTap: (){
                     if(Get.find<AuthController>().userLoggedIn()){
-                      // popularProduct.addItem(product);
-                      cartController.addToHistory();
+
+                      if(Get.find<LocationController>().addressList.isEmpty){
+                        Get.toNamed(RouteHelper.getAddressPage());
+                      }
                     }else{
                        Get.toNamed(RouteHelper.getSigninPage());
                     }

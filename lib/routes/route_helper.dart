@@ -1,3 +1,4 @@
+import 'package:food_delivery/pages/address/add_address_page.dart';
 import 'package:food_delivery/pages/cart/cart_page.dart';
 import 'package:food_delivery/pages/food/popular_food_detail.dart';
 import 'package:food_delivery/pages/home/main_food_page.dart';
@@ -16,19 +17,22 @@ class RouteHelper{
   static const String cartPage = '/cart-page';
   static const String signinPage = '/signin-page';
 
+  static const String addAddressPage= '/add-address';
+
   static String getSplashPage()=> '$splashpage';
   static String getInitial()=> '$initial';
   static String getPopularFood(int pageId,String page)=> '$popularFood?pageId=$pageId&page=$page';
   static String getRecommendedFood(int pageId, String page)=> '$recommendedFood?pageId=$pageId&page=$page';
-  static String getCartPage()=> '$cartPage';
-  static String getSigninPage()=> '$signinPage';
+  static String getCartPage()=>'$cartPage';
+  static String getSigninPage()=>'$signinPage';
+  static String getAddressPage()=>'$addAddressPage';
 
   static List<GetPage> routes = [
     GetPage(name: splashpage, page: ()=> SplashScreen()),
     GetPage(name: initial, page: ()=> HomePage()),
 
     GetPage(name: signinPage, page: (){
-      return SignInPage();
+      return const SignInPage();
     },transition: Transition.fade),
 
     GetPage(name: popularFood , page: (){
@@ -50,10 +54,14 @@ class RouteHelper{
     ),
 
     GetPage(name: cartPage, page: (){
-      return CartPage();
+      return const CartPage();
     },
     transition: Transition.fadeIn
-    )
+    ),
+    
+    GetPage(name: addAddressPage, page: (){
+      return const AddAddressPage();
+    }),
   ];
 
 }
