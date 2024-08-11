@@ -17,6 +17,8 @@ class ApiClient extends GetConnect implements GetxService{
     token = sharedPreferences.getString(AppConstants.TOKEN)??"";
     _mainHeaders = {
       'Content-type' : 'application/json; charset=UTF-8',
+      'Content':'Keep-Alive',
+      'Keep-Alive': 'timeout=5, max=1000',
       'Authorization': 'Bearer $token',
     };
   }
@@ -24,6 +26,8 @@ class ApiClient extends GetConnect implements GetxService{
   void upDateHeaders(String token){
     _mainHeaders = {
       'Content-type' : 'application/json; charset=UTF-8',
+      'Content':'Keep-Alive',
+      'Keep-Alive': 'timeout=5, max=1000',
       'Authorization': 'Bearer $token',
     };
   }

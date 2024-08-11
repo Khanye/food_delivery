@@ -15,7 +15,7 @@ class LocationController extends GetxController implements GetxService {
   LocationController({required this.locationRepo});
 
   bool _loading = false;
-  late Position _position;
+  Position? _position;
   late Position _pickPosition;
   Placemark _placemark = Placemark();
   Placemark _pickPlacemark = Placemark();
@@ -36,7 +36,7 @@ class LocationController extends GetxController implements GetxService {
   bool _updateAddressData = true;
   bool _changeAddress = true;
   bool get loading => _loading;
-  Position get position => _position;
+  Position? get position => _position;
   Position get pickPosition => _pickPosition;
 
   void setMapController(GoogleMapController mapController) {
@@ -96,6 +96,7 @@ class LocationController extends GetxController implements GetxService {
     } else {
       print("Error getting the google api");
     }
+    update();
     return _address;
   }
 
@@ -137,9 +138,9 @@ class LocationController extends GetxController implements GetxService {
     }
     update();
     return responseModel;
-  }
+    }
 
- Future<void> getAddressList() async {
+  Future<void> getAddressList() async {
    Response response = await locationRepo.getAllAddress();
    if(response.statusCode==200){
      _addressList=[];
@@ -158,5 +159,11 @@ class LocationController extends GetxController implements GetxService {
   Future<bool> saveUserAddress(AddressModel addressModel) async {
     String userAddress = jsonEncode(addressModel.toJson());
     return await locationRepo.saveUserAddress(userAddress);
+  }
+
+  void clearAddressList(){
+    _addressList=[];
+    _allAddressList=[];
+    update();
   }
 }

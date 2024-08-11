@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
@@ -39,12 +40,11 @@ class _AddAddressPageState extends State<AddAddressPage> {
       Get.find<UserController>().getUserInfo();
     }
     if (Get.find<LocationController>().addressList.isNotEmpty) {
-      _cameraPosition = CameraPosition(
-          target: LatLng(
-              double.parse(
-                  Get.find<LocationController>().getAddress["latitude"]),
-              double.parse(
-                  Get.find<LocationController>().getAddress["longitude"])));
+      Get.find<LocationController>().getUserAddress();
+      _cameraPosition = CameraPosition(target: LatLng(
+          double.parse(Get.find<LocationController>().getAddress["latitude"]),
+          double.parse(Get.find<LocationController>().getAddress["longitude"])
+      ));
       _initialPosition = LatLng(
           double.parse(Get.find<LocationController>().getAddress["latitude"]),
           double.parse(Get.find<LocationController>().getAddress["longitude"]));
@@ -192,12 +192,12 @@ class _AddAddressPageState extends State<AddAddressPage> {
                       contactPersonName: _contactPersonName.text,
                       contactPersonNumber: _contactPersonNumber.text,
                       address: _addressController.text,
-                      latitude: locationController.position.latitude.toString(),
-                      longitude: locationController.position.longitude.toString(),
+                      latitude: locationController.position?.latitude.toString(),
+                      longitude: locationController.position?.longitude.toString(),
                       );
-                      
                       locationController.addAddress(_addressModel).then((response){
                         if(response.isSuccess){
+                          Get.toNamed(RouteHelper.getInitial());
                           Get.back();
                           Get.snackbar("Address", "Added Successfully");
                         }else{
